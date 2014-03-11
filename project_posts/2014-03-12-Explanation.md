@@ -6,7 +6,6 @@ But it is **FUN!**
 ![Fully working prototype](../project_images/prototype_one.jpg?raw=true "Fully working prototype")
 
 
-
 [My presentation](http://goo.gl/2UkQlB "My presentation"), I got a lot of positive feedback.
 
 

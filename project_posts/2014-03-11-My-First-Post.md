@@ -4,9 +4,7 @@ I will use it to tell you shortly how and when it started as it is a quite old i
 Idea of that clock came to my mind a year ago, with all that hype about smartwatches I was strike with the thought that on all screenshots they use an analog clock as a main clock face - which for me was a huge draw back and lost opportunity to use such thing as smartwatch...
 
 
-<p align="center">
-	![First mockup of the idea - a year ago](../project_images/clock-concept.png?raw=true "AFirst mockup of the idea - a year ago")
-</p>
+![First mockup of the idea - a year ago](../project_images/clock-concept.png?raw=true "AFirst mockup of the idea - a year ago")
 
 
 First mockup of the idea - made a year ago.
