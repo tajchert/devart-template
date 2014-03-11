@@ -1,16 +1,17 @@
 {
     "technologies": {
         "apis": [
-            "insert apis"
         ],
         "platforms": [
-            "insert platforms"
+            "Arduino",
+            "Android", 
+            "iOS"
         ],
         "toolkits": [
-            "insert toolkits"
         ]
     },
     "themes": [
-        "insert themes"
+        "Practical",
+        "Beautiful"
     ]
 }
