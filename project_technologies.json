@@ -1,11 +1,14 @@
 {
     "technologies": {
+        "languages": [
+            "Java",
+            "C",
+        ],
         "apis": [
         ],
         "platforms": [
             "Arduino",
-            "Android", 
-            "iOS"
+            "Android"
         ],
         "toolkits": [
         ]
@@ -13,6 +16,9 @@
     "themes": [
         "Practical",
         "Art",
-        "Visualization"
+        "Visualization",
+        "colorful",
+        "modular",
+        "interactive"
     ]
 }
