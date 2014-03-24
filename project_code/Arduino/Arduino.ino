@@ -31,11 +31,10 @@ void setup() {
   btSerial.begin(9600);
 }
 void loop() {
-  
   if(btSerial.available()) {
     s=(char)btSerial.read();
         if(s == 'x'){
-          //To prevent including old data, start every incoming task with 'x' to clean the buffor
+          //To prevent including old data, start every incoming task with 'x' to clean the buffer
           Serial.println("Cleaning"); 
           txtMsg = "";
         }
