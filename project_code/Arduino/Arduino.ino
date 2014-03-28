@@ -54,16 +54,22 @@ void loop() {
     Serial.println("Cleaning");
   }
   else if(s == '>' && tmp.length() > 0){
+    Serial.println("---");
+    Serial.println(tmp);
     tmp = tmp.substring(1, tmp.length()-1);
     char lastOne = tmp[tmp.length()-1];
-    Serial.println(lastOne);
+    Serial.println(tmp);
+    Serial.println("---");
     if(lastOne == 'z'){
+      
       //One LED
       Serial.println("One LED");
+      tmp = tmp.substring(1, tmp.length());
       R = tmp.substring(0,3).toInt();
       G = tmp.substring(4,7).toInt();
       B = tmp.substring(8,11).toInt();
-      Num = tmp.substring(12,15).toInt();
+      Num = tmp.substring(11,15).toInt();
+      Serial.println(Num);
       strip.setPixelColor(Num, strip.Color(R, G, B));
       strip.show();
       
@@ -71,20 +77,28 @@ void loop() {
     else if(lastOne == 'r'){
       //Range
       Serial.println("RANGE");
+      Serial.println(tmp);
+      Serial.println(tmp.length());
       if(tmp.length()>=17){
         R = tmp.substring(0,3).toInt();
         G = tmp.substring(4,7).toInt();
         B = tmp.substring(8,11).toInt();
-        int rangeStart = tmp.substring(12,15).toInt();
-        int rangeEnd = tmp.substring(16,19).toInt();
+        int rangeEnd = abs(tmp.substring(12,15).toInt() - 139);
+        int rangeStart = abs(tmp.substring(16,19).toInt() - 139) ;
+        
+        Serial.println(tmp.substring(12,15));
+        Serial.println(tmp.substring(16,19));
+        Serial.println("-TO-");
+        Serial.println(rangeStart);
+        Serial.println(rangeEnd);
         if(rangeEnd<rangeStart && rangeEnd==0){
           //Event ends at noon
-          rangeEnd =57;
+          rangeEnd =139;
         }
-        if(rangeStart < 58 && rangeEnd > 0 && rangeEnd < rangeStart){
+        if(rangeStart < 140 && rangeEnd > 0 && rangeEnd < rangeStart){
           //Goes through top
           Serial.println("Over the top!");
-          for(int i =rangeStart; i<58; i++){
+          for(int i =rangeStart; i<140; i++){
             strip.setPixelColor(i, strip.Color(R, G, B));
           }
           for(int i =0; i<rangeEnd; i++){
@@ -116,10 +130,24 @@ void loop() {
       theaterChase(strip.Color(  0,   0, 127), 50);
        
     }
+    else if(tmp.toInt() == 62){
+      rainbowCycle(20);
+    }
 
     Serial.println(tmp);
     tmp = "";
     delay(2);
+  }
+}
+void rainbowCycle(uint8_t wait) {
+  uint16_t i, j;
+
+  for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
+    for(i=0; i< strip.numPixels(); i++) {
+      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
+    }
+    strip.show();
+    delay(wait);
   }
 }
 
